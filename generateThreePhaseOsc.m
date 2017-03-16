@@ -12,7 +12,6 @@ output(1) = TRANS_A;
 output(2) = TRANS_B;
 output(3) = TRANS_B;
 num_output = ones(N,1);
-num_output(2) = 1;
 W = zeros(N,M);
 W(1,TRANS_B) = -1;
 W(2,TRANS_A) = 1;

@@ -1,4 +1,4 @@
-function [neurons M W output period start_active] = generateBurstFreqAdapt
+function [neurons M W output num_output period start_active] = generateBurstFreqAdapt
 global FREQ_ADAPT;
 global BURSTING;
 neurons = [BURSTING FREQ_ADAPT];
@@ -7,6 +7,7 @@ N = length(neurons);
 output = zeros(N,1);
 output(1) = 1;
 output(2) = 2;
+num_output = ones(N,1);
 W = zeros(N,M);
 %W(1,output(2)) = -1;
 W(2,output(1)) = 1;

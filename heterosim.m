@@ -12,17 +12,16 @@ BURSTING = 1;
 FREQ_ADAPT = 2;
 TONIC = 3;
 
-%[neurons M W output period start_active] = generateOscillators;
-[neurons M W output period start_active] = generateBurstFreqAdapt;
-%[neurons M W output period start_active] = generateOscTon;
-%[neurons M W output period start_active] = generateThreePhaseThreeTrans;
-%[neurons M W output period start_active] = generateTonTon;
+%[neurons M W output num_output period start_active] = generateOscillators;
+%[neurons M W output num_output period start_active] = generateBurstFreqAdapt;
+%[neurons M W output num_output period start_active] = generateOscTon;
+%[neurons M W output num_output period start_active] = generateThreePhaseThreeTrans;
+%[neurons M W output num_output period start_active] = generateTonTon;
 
 %[neurons M W output num_output period start_active] = generateThreePhaseOsc;
 %[neurons M W output num_output period start_active] = generateThreePhaseOscStop;
 %[neurons M W output num_output period start_active] = generateThreePhaseOscReverse;
 
-%neurons = [BURSTING SILENT BURSTING];
 N = length(neurons);
 
 %neuromediators
