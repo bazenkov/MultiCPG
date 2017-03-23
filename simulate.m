@@ -51,9 +51,10 @@ end
 
 function p = createInputParser
 p = inputParser;
+DEFAULT_FORMAT = 'JPEG';
 p.addOptional('experiment', []);
 p.addParameter('File', '', @ischar);
 p.addParameter('PrintFolder', '', @ischar);
-p.addParameter('PrintFormat', 'JPEG', @ischar);
+p.addParameter('PrintFormat', DEFAULT_FORMAT, @ischar);
 
 end

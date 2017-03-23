@@ -10,6 +10,7 @@ incorrectExperiment = [];
 printFolder = 'output';
 notExistPrintFolder = 'notExistFolder';
 correctFormats = {'JPEG', 'EPS', 'PNG'};
+checkExtensions = {'.jpg', '.eps', '.png'};
 incorrectFormats = {'BMP', 'jpeg'};
 
 %clear output folder
@@ -25,7 +26,7 @@ close all;
 %% test correct file input
 
 
-%% test print folder exists format not specified
+%% test print to existing folder, format not specified
 [a,c,output] = simulate(correctExperiment, 'PrintFolder', printFolder);
 assert(strcmp(output.PrintFolder, printFolder));
 checkFile = strcat(correctExperiment.name, ...
@@ -53,10 +54,30 @@ rmdir(notExistPrintFolder, 's');
 close all;
 
 %% test incorrect print format
+for iF = 1:length(incorrectFormats)
+    try
+        [a,c,output] = simulate(correctExperiment, 'PrintFolder', printFolder, 'PrintFormat', incorrectFormats{iF});
+        assert(false, 'Error was not thrown on incorrect experiment');
+    catch ME
+        assert(strcmp(ME.identifier, 'printResults:InvalidInput'));
+    end
+end
 
 
-
-%% test specified format
+%% test correct print formats
+for iF = 1:length(correctFormats)
+    [a,c,output] = simulate(correctExperiment, 'PrintFolder', printFolder, 'PrintFormat', correctFormats{iF});
+    assert(strcmp(output.PrintFolder, printFolder));
+    checkFile = strcat(correctExperiment.name, ...
+        '-d', num2str(correctExperiment.duration), ...
+        '-n', num2str(correctExperiment.getNumOfNeurons), ...
+        '-t', num2str(correctExperiment.getNumOfTransmitters),...
+        checkExtensions{iF});
+    assert(strcmp(output.PrintFile, checkFile));
+    info = dir(output.Path);
+    assert(~isempty(info));
+    assert(strcmp(info.name, checkFile));
+end
 
 
 
