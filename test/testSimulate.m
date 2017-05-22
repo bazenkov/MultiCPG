@@ -1,10 +1,6 @@
 % *** Shared data section ***
 %Input experiment
-defaultDuration = 5;
-defaultName = 'Test Experiment';
-correctNeurons = {[],[],[]};
-correctTransmitters = {[],[],[]};
-correctExperiment = Experiment(defaultName, defaultDuration, correctNeurons, correctTransmitters);
+correctExperiment = createTestExperiment;
 incorrectExperiment = [];
 %Output options
 printFolder = 'output';
