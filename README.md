@@ -1,6 +1,7 @@
 # MultiCPG - Multi-transmitter central pattern generator simulator
 A Matlab implementation of the model described in the paper:
-N. Bazenkov, V. Dyakonova, O. Kuznetsov, D. Sakharov, D. Vorontsov, L. Zhilyakova Discrete Modeling of Multi-Transmitter Neural Networks with Neuron Competition
+N. Bazenkov, V. Dyakonova, O. Kuznetsov, D. Sakharov, D. Vorontsov, L. Zhilyakova 
+Discrete Modeling of Multi-Transmitter Neural Networks with Neuron Competition
 [ArXiv](https://arxiv.org/abs/1705.02176)
 
 ## Main features
