@@ -15,6 +15,6 @@ injectionXXX(riseLimit+1:end) = (riseLimit-1:-1:0)/20 + (rand-0.5)*0.5-0.2;
 
 %experiment.injection(3,:) = 0.4 + rand(1,experiment.duration)*0.5;%injectionXXX;
 experiment.name = 'Feeding CPG';
-experiment.duration = 11;
+experiment.duration = 30;
 
-simulate(experiment)%, 'PrintFolder', printFolder, 'PrintFormat', printFormat);
+simulate(experiment, 'PrintFolder', printFolder, 'PrintFormat', printFormat);
