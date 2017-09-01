@@ -17,8 +17,10 @@ The example CPG can be created by createFeedingCPG.m function
 
 Then you should run simulate.m function.
 
-'<experiment = createFeedingCPG;>'
-'simulate(experiment);'
+'''
+experiment = createFeedingCPG;
+simulate(experiment);
+'''
 
 Usage example can be found in run_cpg.m script
 
