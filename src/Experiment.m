@@ -10,7 +10,16 @@ classdef Experiment
     
     methods
         function obj = Experiment(name, expDuration, neurons, transmitters, injection)
-            
+        %name - char array, the name of the experiment, for example 'Feeding CPG'    
+        %expDuration - integer, the duration of the experiment
+        %neurons - (N,1) cell array consisting of the neurons comprising
+        %the extracellular space in the experiment
+        %transmitters - (M,1) cell array consisting of neurotransmitters
+        %involved
+        %injection - (M,expDuration) double array contains external
+        %injections of neurotransmitters at every time instance. 
+        %   injection(i,t) is the amount of j-th neurotransmitter injected
+        %   at time instance t
             obj.duration = expDuration;
             obj.neurons = neurons;
             obj.transmitters = transmitters;
