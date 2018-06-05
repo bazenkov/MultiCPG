@@ -76,6 +76,6 @@ for j=1:experiment.getNumOfTransmitters
     %set(gca, 'YTick', [0 ]);
     YMAXLIM = max(max(concentrations))*1.1; 
     ylim([0, YMAXLIM]);
-    ylabel(transTitle, 'Rotation', 0, 'Position', [-0.8 0.5*YMAXLIM], 'FontWeight', 'bold');
+    ylabel(transTitle, 'Rotation', 0, 'Position', [-1.1 0.5*YMAXLIM], 'FontWeight', 'bold');
 end
 end
