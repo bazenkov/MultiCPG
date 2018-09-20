@@ -1,7 +1,7 @@
 function experiment = createFeedingCPG
 duration = 40;
 name = 'Feeding CPG';
-N1 = Neuron.createOscillator('N1', [0 -1 -1], [1 0 0], 1, -1, 1, 1, 3);
+N1 = Neuron.createOscillator('N1', [0 -1 -1], [1 0 0], 1, -1, 1, 1, 2);
 N2 = Neuron.createFollower('N2', [1 0 0], [0 2 0], 1, -1);
 N3 = Neuron.createTonic('N3', [-1 -1 0], [0 0 0.5], -1, 3);
 

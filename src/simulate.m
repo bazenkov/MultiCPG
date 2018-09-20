@@ -13,8 +13,6 @@ function [neuronActivity, concentrations, output] = simulate(varargin)
 %'PrintFolder' - a path to the folder where the program should put the
 %printed plots and experiment description
 %
-% *** NOT IMPLEMENTED YET:
-%'ModelType' - the type of neuronal dynamics model. Possible values are 'simple' (default) and 'competitive'. Currently the only possible value is simle.
 
 [experiment, printFolder, printFormat] = parseInput(varargin{:});
 

@@ -36,7 +36,8 @@ plotOptions.neuronColors = {};
 for i=1:experiment.getNumOfNeurons
     plotOptions.neuronColors{i} = COLOR_NEURON;
 end
-COLORS_TRANS = {'red', 'green', 'blue'};%, 'magenta', 'yellow', 'cyan'};
+%COLORS_TRANS = {'red', 'green', 'blue'};%, 'magenta', 'yellow', 'cyan'};
+COLORS_TRANS = {[1 0 0], [0 1 0], [0 0 1]};%, 'magenta', 'yellow', 'cyan'};
 plotOptions.transmitterColors = {};
 for j=1:experiment.getNumOfTransmitters
     plotOptions.transmitterColors{j} = COLORS_TRANS{mod(j, length(COLORS_TRANS)+1) + 1*(j==length(COLORS_TRANS)+1)};
@@ -51,8 +52,7 @@ for i=1:experiment.getNumOfNeurons
     subplot(numPlots, 1, i);
     bar_handle = bar(1:experiment.duration, neuronActivity(i,:));
     set(bar_handle, 'FaceColor', plotOptions.neuronColors{i});
-    neuronTitle = experiment.neurons{i}.name;% strcat('N',num2str(i));
-    %title(neuronTitle, 'FontSize', 12);
+    neuronTitle = experiment.neurons{i}.name;
     if (i==1)
         title(experiment.name, 'FontSize', 12 , 'Position', [experiment.duration/5*3 1.3]);
     end
@@ -68,9 +68,21 @@ function plotTransmitters(experiment, concentrations, plotOptions)
 numPlots = getNumOfPlots(experiment);
 for j=1:experiment.getNumOfTransmitters
     subplot(numPlots, 1, experiment.getNumOfNeurons+j);
-    bar_handle = bar((1:experiment.duration), concentrations(j,:));
+    if isprop(experiment, 'injection') && ...
+            sum(experiment.injection(j,:))>0
+        y = [experiment.injection(j,:)' concentrations(j,:)'-experiment.injection(j,:)']; 
+        bar_handle = bar((1:experiment.duration), y, 'stacked');
+        %injection color:
+        bar_handle(1).FaceColor = plotOptions.transmitterColors{j}/3;
+        %neurons' output color
+        bar_handle(2).FaceColor = plotOptions.transmitterColors{j};        
+    else
+        y = concentrations(j,:);
+        bar_handle = bar((1:experiment.duration), y);
+        set(bar_handle,'FaceColor', plotOptions.transmitterColors{j});
+    end
+    
     transTitle = experiment.transmitters{j}.name;%strcat('Transmitter ',num2str(j));
-    set(bar_handle,'FaceColor', plotOptions.transmitterColors{j});
     %title(transTitle, 'FontSize', 12);
     set(gca, 'XTick', 1:experiment.duration);
     %set(gca, 'YTick', [0 ]);
