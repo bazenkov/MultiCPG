@@ -25,7 +25,7 @@ simulate(experiment);
 Usage example can be found in ```run_cpg.m``` script
 
 ## Project structure
-Source files are located in ```src``` directory. The ```test``` directory contains test classes which can be used as usage exmples.
+Source files are located in ```src``` directory. The ```test``` directory contains test cases. The ```experiments``` directory contains usage examples.
 
 There are three basic classes: ```Experiment```, ```Neuron``` and ```Transmitter```.
 An Experiment object includes a set of neurons and a set of neurotransmitters. The neurons can be of three different types which represents different activity patterns:
