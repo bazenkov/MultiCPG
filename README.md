@@ -1,6 +1,8 @@
 # MultiCPG - Multi-transmitter central pattern generator simulator
 A Matlab implementation of the model described in the paper:
-N. Bazenkov, V. Dyakonova, O. Kuznetsov, D. Sakharov, D. Vorontsov, L. Zhilyakova Discrete Modeling of Multi-Transmitter Neural Networks with Neuron Competition
+
+N. Bazenkov, V. Dyakonova, O. Kuznetsov, D. Sakharov, D. Vorontsov, L. Zhilyakova 
+Discrete Modeling of Multi-Transmitter Neural Networks with Neuron Competition
 [ArXiv](https://arxiv.org/abs/1705.02176)
 
 ## Main features
@@ -11,27 +13,29 @@ We propose a novel discrete model of central pattern generators (CPG), neuronal 
 
 ## Usage
 First, you need to create your experiment, specified by Experiment class (Experiment.m source file).
-The example CPG can be created by createFeedingCPG.m function
+The example CPG can be created by ```createFeedingCPG.m``` function
 
-Then you should run simulate.m function.
+Then you should run ```simulate.m``` function.
 
-'experiment = createFeedingCPG;'
-'simulate(experiment);'
+```
+experiment = createFeedingCPG;
+simulate(experiment);
+```
 
-Usage example can be found in run_cpg.m script
+Usage example can be found in ```run_cpg.m``` script
 
 ## Project structure
-Source files are located in 'src' directory. The 'test' directory contains test classes which can be used as usage exmples.
+Source files are located in ```src``` directory. The ```test``` directory contains test classes which can be used as usage exmples.
 
-There are three basic classes: 'Experiment', 'Neuron' and 'Transmitter'.
+There are three basic classes: ```Experiment```, ```Neuron``` and ```Transmitter```.
 An Experiment object includes a set of neurons and a set of neurotransmitters. The neurons can be of three different types which represents different activity patterns:
 oscillator, tonic and follower. A detailed description is provided in the paper.
 
 When you create a new Experiment object, you should provide neurons, transmitters, the duration of the experiment and the array of external injections of neurotransmitters.
 
-Function 'simulate' is the main input point which simulates the neuronal activity, plots the results and optionally print the figures to the specified directory.
+Function ```simulate``` is the main input point which simulates the neuronal activity, plots the results and optionally print the figures to the specified directory.
 
-Function 'generateRhythms' is used to compute the neuronal activity and concentrations of the neurotransmitters given the input provided by the experiment object
+Function ```generateRhythms``` is used to compute the neuronal activity and concentrations of the neurotransmitters given the input provided by the experiment object
 
-Functions 'plotResults' and 'printResults' are used to plot the neuronal activity graphs and print them to specified folders.
+Functions ```plotResults``` and ```printResults``` are used to plot the neuronal activity graphs and print them to specified folders.
 
